@@ -17,6 +17,10 @@ _$_Food _$$_FoodFromJson(Map<String, dynamic> json) => _$_Food(
               ?.map((e) => Rating.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
+      addons: (json['addons'] as List<dynamic>?)
+              ?.map((e) => FoodAddon.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
     );
 
 Map<String, dynamic> _$$_FoodToJson(_$_Food instance) => <String, dynamic>{
@@ -27,4 +31,5 @@ Map<String, dynamic> _$$_FoodToJson(_$_Food instance) => <String, dynamic>{
       'descriptionExtended': instance.descriptionExtended,
       'price': instance.price,
       'ratings': instance.ratings,
+      'addons': instance.addons,
     };

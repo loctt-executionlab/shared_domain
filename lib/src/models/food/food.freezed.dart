@@ -27,6 +27,7 @@ mixin _$Food {
   String get descriptionExtended => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
   List<Rating> get ratings => throw _privateConstructorUsedError;
+  List<FoodAddon> get addons => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,7 +46,8 @@ abstract class $FoodCopyWith<$Res> {
       String descriptionShort,
       String descriptionExtended,
       double price,
-      List<Rating> ratings});
+      List<Rating> ratings,
+      List<FoodAddon> addons});
 }
 
 /// @nodoc
@@ -68,6 +70,7 @@ class _$FoodCopyWithImpl<$Res, $Val extends Food>
     Object? descriptionExtended = null,
     Object? price = null,
     Object? ratings = null,
+    Object? addons = null,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -98,6 +101,10 @@ class _$FoodCopyWithImpl<$Res, $Val extends Food>
           ? _value.ratings
           : ratings // ignore: cast_nullable_to_non_nullable
               as List<Rating>,
+      addons: null == addons
+          ? _value.addons
+          : addons // ignore: cast_nullable_to_non_nullable
+              as List<FoodAddon>,
     ) as $Val);
   }
 }
@@ -115,7 +122,8 @@ abstract class _$$_FoodCopyWith<$Res> implements $FoodCopyWith<$Res> {
       String descriptionShort,
       String descriptionExtended,
       double price,
-      List<Rating> ratings});
+      List<Rating> ratings,
+      List<FoodAddon> addons});
 }
 
 /// @nodoc
@@ -134,6 +142,7 @@ class __$$_FoodCopyWithImpl<$Res> extends _$FoodCopyWithImpl<$Res, _$_Food>
     Object? descriptionExtended = null,
     Object? price = null,
     Object? ratings = null,
+    Object? addons = null,
   }) {
     return _then(_$_Food(
       id: freezed == id
@@ -164,6 +173,10 @@ class __$$_FoodCopyWithImpl<$Res> extends _$FoodCopyWithImpl<$Res, _$_Food>
           ? _value._ratings
           : ratings // ignore: cast_nullable_to_non_nullable
               as List<Rating>,
+      addons: null == addons
+          ? _value._addons
+          : addons // ignore: cast_nullable_to_non_nullable
+              as List<FoodAddon>,
     ));
   }
 }
@@ -178,8 +191,10 @@ class _$_Food implements _Food {
       required this.descriptionShort,
       required this.descriptionExtended,
       required this.price,
-      final List<Rating> ratings = const []})
-      : _ratings = ratings;
+      final List<Rating> ratings = const [],
+      final List<FoodAddon> addons = const []})
+      : _ratings = ratings,
+        _addons = addons;
 
   factory _$_Food.fromJson(Map<String, dynamic> json) => _$$_FoodFromJson(json);
 
@@ -203,9 +218,17 @@ class _$_Food implements _Food {
     return EqualUnmodifiableListView(_ratings);
   }
 
+  final List<FoodAddon> _addons;
+  @override
+  @JsonKey()
+  List<FoodAddon> get addons {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_addons);
+  }
+
   @override
   String toString() {
-    return 'Food(id: $id, name: $name, imageUrl: $imageUrl, descriptionShort: $descriptionShort, descriptionExtended: $descriptionExtended, price: $price, ratings: $ratings)';
+    return 'Food(id: $id, name: $name, imageUrl: $imageUrl, descriptionShort: $descriptionShort, descriptionExtended: $descriptionExtended, price: $price, ratings: $ratings, addons: $addons)';
   }
 
   @override
@@ -222,7 +245,8 @@ class _$_Food implements _Food {
             (identical(other.descriptionExtended, descriptionExtended) ||
                 other.descriptionExtended == descriptionExtended) &&
             (identical(other.price, price) || other.price == price) &&
-            const DeepCollectionEquality().equals(other._ratings, _ratings));
+            const DeepCollectionEquality().equals(other._ratings, _ratings) &&
+            const DeepCollectionEquality().equals(other._addons, _addons));
   }
 
   @JsonKey(ignore: true)
@@ -235,7 +259,8 @@ class _$_Food implements _Food {
       descriptionShort,
       descriptionExtended,
       price,
-      const DeepCollectionEquality().hash(_ratings));
+      const DeepCollectionEquality().hash(_ratings),
+      const DeepCollectionEquality().hash(_addons));
 
   @JsonKey(ignore: true)
   @override
@@ -259,7 +284,8 @@ abstract class _Food implements Food {
       required final String descriptionShort,
       required final String descriptionExtended,
       required final double price,
-      final List<Rating> ratings}) = _$_Food;
+      final List<Rating> ratings,
+      final List<FoodAddon> addons}) = _$_Food;
 
   factory _Food.fromJson(Map<String, dynamic> json) = _$_Food.fromJson;
 
@@ -277,6 +303,8 @@ abstract class _Food implements Food {
   double get price;
   @override
   List<Rating> get ratings;
+  @override
+  List<FoodAddon> get addons;
   @override
   @JsonKey(ignore: true)
   _$$_FoodCopyWith<_$_Food> get copyWith => throw _privateConstructorUsedError;
