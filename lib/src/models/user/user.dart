@@ -18,7 +18,11 @@ class User with _$User {
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
-  //TODO: add mapping from db
-  factory User.fromDB(db.User user) =>
-      User(email: user.name, id: user.id.toString(), name: '', password: '');
+  factory User.fromDB(db.User user) => User(
+        email: user.name,
+        id: user.id.toString(),
+        name: user.name,
+        password: user.password,
+        phoneNumber: user.phoneNumber,
+      );
 }

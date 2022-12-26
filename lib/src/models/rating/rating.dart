@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-// most likely a bug as package in imported
-// ignore: depend_on_referenced_packages
+import 'package:db/db.dart' as db;
 
 part 'rating.freezed.dart';
 part 'rating.g.dart';
@@ -16,4 +15,12 @@ class Rating with _$Rating {
   }) = _Rating;
 
   factory Rating.fromJson(Map<String, dynamic> json) => _$RatingFromJson(json);
+
+  factory Rating.fromDB(db.Rating rating) => Rating(
+        userId: rating.userId,
+        userName: rating.userName,
+        content: rating.content,
+        rating: rating.rating,
+        id: rating.id.toString(),
+      );
 }
