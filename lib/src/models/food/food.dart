@@ -1,8 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:shared/src/models/food_addon/food_addon.dart';
 import 'package:shared/src/models/rating/rating.dart';
-// most likely a bug as package in imported
-// ignore: depend_on_referenced_packages
 import 'package:db/db.dart' as db;
 
 part 'food.freezed.dart';
@@ -38,13 +36,6 @@ class Food with _$Food {
                   description: e.description,
                 ))
             .toList(),
-        ratings: food.ratings
-            .map((e) => Rating(
-                  userId: e.userId.toString(),
-                  userName: e.userName,
-                  content: e.content,
-                  rating: e.rating,
-                ))
-            .toList(),
+        ratings: food.ratings.map((e) => Rating.fromDB(e)).toList(),
       );
 }

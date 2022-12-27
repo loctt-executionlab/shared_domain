@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:shared/src/models/rating/rating.dart';
+import 'package:db/db.dart' as db;
 
 part 'restaurant.freezed.dart';
 part 'restaurant.g.dart';
@@ -18,4 +19,13 @@ class Restaurant with _$Restaurant {
 
   factory Restaurant.fromJson(Map<String, dynamic> json) =>
       _$RestaurantFromJson(json);
+
+  factory Restaurant.fromDB(db.Restaurant restaurant) => Restaurant(
+        name: restaurant.name,
+        imageUrl: restaurant.logoImageUrl,
+        shippingTime: restaurant.deliveryTime,
+        shippingPrice: restaurant.deliveryFee,
+        id: restaurant.id.toString(),
+        ratings: restaurant.ratings.map((e) => Rating.fromDB(e)).toList(),
+      );
 }
