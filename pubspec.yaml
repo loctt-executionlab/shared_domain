@@ -12,7 +12,9 @@ environment:
 dev_dependencies:  
   build_runner: ^2.3.3
   db:
-    path: ../server/packages/db
+    git:
+      url: https://github.com/loctt-executionlab/shared_db.git
+      ref: main
   freezed: ^2.2.0
   json_serializable: ^6.5.4
   lints: ^2.0.0
