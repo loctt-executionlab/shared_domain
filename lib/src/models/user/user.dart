@@ -1,6 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-// most likely a bug as package in imported
-// ignore: depend_on_referenced_packages
 import 'package:db/db.dart' as db;
 
 part 'user.freezed.dart';
